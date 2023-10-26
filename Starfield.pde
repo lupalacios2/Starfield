@@ -1,8 +1,7 @@
 Particle[] bob;
-int dims = 500;
 
 void setup() {
-  size(dims, dims);
+  size(300, 300);
   
   bob = new Particle[100];
 
@@ -26,8 +25,8 @@ class Particle {
 
   Particle() {
     c = color(255, 255, 255);
-    x = dims/2;
-    y = dims/2;
+    x = 150;
+    y = 150;
     angle = Math.random() * TAU;
     speed = Math.random() * 10;
     size = 5;
