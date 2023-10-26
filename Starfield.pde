@@ -27,7 +27,7 @@ class Particle {
     c = color(255, 255, 255);
     x = 150;
     y = 150;
-    angle = Math.random() * Math.PI;
+    angle = Math.random() * 2 * Math.PI;
     speed = Math.random() * 10;
     size = 5;
   }
