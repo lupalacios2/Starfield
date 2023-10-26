@@ -2,7 +2,7 @@ Particle[] bob;
 
 void setup() {
   size(300, 300);
-  
+
   bob = new Particle[100];
 
   bob[0] = new Oddball();
@@ -39,7 +39,7 @@ class Particle {
 
   void show() {
     fill(c);
-    ellipse(x, y, size, size);
+    ellipse((int) x, (int) y, (int) size, (int) size);
   }
 }
 
