@@ -1,20 +1,52 @@
-//your code here
-void setup()
-{
-	//your code here
-}
-void draw()
-{
-	//your code here
-}
-class Particle
-{
-	//your code here
+Particle[] bob;
+int dims = 500;
+
+void setup() {
+  size(dims, dims);
+  
+  bob = new Particle[100];
+
+  bob[0] = new Oddball();
+  for (int i = 1; i < bob.length; i++) {
+    bob[i] = new Particle();
+  }
 }
 
-class OddballParticle //inherits from Particle
-{
-	//your code here
+void draw() {
+  background(169, 169, 169);
+  for (int i = 0; i < bob.length; i++) {
+    bob[i].move();
+    bob[i].show();
+  }
 }
 
+class Particle {
+  color c;
+  double x, y, angle, speed, size;
 
+  Particle() {
+    c = color(255, 255, 255);
+    x = dims/2;
+    y = dims/2;
+    angle = Math.random() * TAU;
+    speed = Math.random() * 10;
+    size = 5;
+  }
+
+  void move() {
+    x += Math.cos(angle) * speed;
+    y += Math.sin(angle) * speed;
+  }
+
+  void show() {
+    fill(c);
+    ellipse(x, y, size, size);
+  }
+}
+
+class Oddball extends Particle {
+  Oddball () {
+    c = color((int)(Math.random() * 255), (int)(Math.random() * 255), (int)(Math.random() * 255));
+    size = 10;
+  }
+}
