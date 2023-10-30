@@ -2,7 +2,7 @@ Particle[] bob;
 
 void setup() {
   size(300, 300);
-
+  
   bob = new Particle[100];
 
   bob[0] = new Oddball();
@@ -20,6 +20,7 @@ void draw() {
 }
 
 class Particle {
+  int count = 0;
   color c;
   double x, y, angle, speed, size;
 
@@ -33,8 +34,14 @@ class Particle {
   }
 
   void move() {
+    if (count < 35) {
+      angle += Math.PI / 50;
+    }
+    
     x += Math.cos(angle) * speed;
     y += Math.sin(angle) * speed;
+    
+    count++;
   }
 
   void show() {
@@ -46,6 +53,6 @@ class Particle {
 class Oddball extends Particle {
   Oddball () {
     c = color((int)(Math.random() * 255), (int)(Math.random() * 255), (int)(Math.random() * 255));
-    size = 10;
+    size = 9;
   }
 }
